@@ -28,6 +28,7 @@ app.listen(conf.port, function() {
 app.post("/standby", function(req, res) {
   if(req.body.password != conf.password) {
     res.sendStatus(401);
+    return;
   }
   var now = new Date().getTime()
   if(now > nextAllowed) {
